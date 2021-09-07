@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+int main()
+{
+    int x=0;
+    std::cout << "Привет. Введи число в диапазоне от -2 в 31 степени до 2 в 31 степени - 1 включительно\n";
+    std::cin >> x;
+    std::cout << std::showpos << (3*pow(x,5))+(2*pow(x,3))+1 << std::endl;
+
+    unsigned int a=0;
+    std::cout << "Введите число в диапазоне от 0 до 2 в 32 степени - 1 включительно\n";
+    std::cin >> a;
+    std::cout << std::setprecision(3) << 5*sqrt((3*a)-2)-(4*abs(a)) << std::endl;
+
+    bool k=0, l=0, m=0, n=0;
+    std::cout << "Введите логические значения для 4 переменных\n";
+    std::cin >> k >> l >> m >> n;
+    std::cout << std::boolalpha << (l||((m||!n)&&!(m&&!n))&&!k) << std::endl;
+
+    unsigned short b=0;
+    std::cout << "Введите число в диапазоне от 0 до 7 включительно\n";
+    std::cin >> b;
+    std::cout << std::dec << pow(2,b) << ' ' << std::oct << pow(2,b) << std::endl;
+
+    unsigned short c=0, d=0, e=0, f=0;
+    std::cout << "Введите 4 числа в диапазоне от 0 до 2 в 16 степени - 1 включительно\n";
+    std::cin >> c >> d >> e >> f;
+    std::cout << std::hex << std::showbase << (!(f|d)&(c^e)) << std::endl;
+
+
+
+    return 0;
+}
