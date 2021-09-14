@@ -1,0 +1,64 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+int main()
+{
+    //#1
+    for(int i; i<128; i++)
+    {
+        char a = i;
+        std::cout << a << std::endl;
+    }
+
+    char f = 0;
+    std::cin >> f;
+
+    //#2
+    if(f > 47 && f < 58)
+        std::cout << "You have written a number" << std::endl << std::endl;
+        else if ((f > 64 && f < 91)||(f > 96 && f < 123))
+            std::cout << "You have written a character" << std:: endl << std::endl;
+                else
+                    std::cout << "You have written an undefined symbol" << std::endl;
+
+    //#3
+    long long int x = 0;
+    std::cin >> x;
+    switch(x % 4) {
+        case 0:
+        std::cout << x << std::endl;
+            break;
+        case 1:
+        std::cout << 0 << std::endl;
+            break;
+        case 2:
+        std::cout << 1./x << std::endl;
+            break;
+        case 3:
+        std::cout << -x << std::endl;
+            break;
+    }
+
+    //#4
+    double y = 0;
+    std::cin >> x;
+    double z = x;
+    y = std::sin(x);
+    unsigned int n = 1;
+    double p = 6;
+
+    while (abs(y-z)>0.01)
+    {
+        z = z + pow(-1,n) * pow(x,2*n+1) / p;
+        p = p*2*n*(2*n+1);
+        n = n+1;
+
+    }
+    std::cout << z << std::endl;
+
+
+
+
+    return 0;
+}
