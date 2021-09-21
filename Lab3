@@ -1,0 +1,174 @@
+#include <iostream>
+#include <cmath>
+#include <random>
+
+int main()
+{
+    //#1
+    std::random_device rd;
+    int arr1[10] = {};
+    for (int i = 0; i < 10; ++i)
+    {
+        arr1[i] = rd() % 21 - 10;
+    }
+    std::cout << pow(arr1[2],2) + pow(arr1[3],2) + pow(arr1[7],2) << std::endl;
+
+
+    //#2
+    unsigned int n2 = 0;
+    std::cout << "Enter length of the massive, that is more than 10\n";
+    std::cin >> n2;
+    int* arr2 = new int[10]();
+    std::cout << "Now enter values of all elements\n";
+    for (int i = 0; i < n2; ++i)
+    {
+        std::cin >> arr2[i];
+    }
+    std::cout << "Your massive:\n";
+    for (int i = 0; i < n2; ++i)
+    {
+        std::cout << arr2[i] << std::endl;
+    }
+
+
+    std::cout << "Your massive with doubled even values:\n";
+    for (int i = 0; i < n2; ++i)
+    {
+        if (arr2[i] % 2 == 0)
+            arr2[i] = arr2[i] * 2;
+        std::cout << arr2[i] << std::endl;
+    }
+
+
+    unsigned int k1 = 0;
+    unsigned int k2 = 0;
+    std::cout << "Enter k1 and k2 values\n";
+    std::cin >> k1 >> k2;
+    int i2 = 0;
+    float sum2 = 0;
+    for (int i = k1 - 1; i < k2; ++i)
+    {
+        sum2 = sum2 + arr2[i];
+        ++i2;
+    }
+    std::cout << sum2 / i2 << std::endl;
+
+
+    //#3
+    unsigned int n3 = 0;
+    unsigned int m3 = 0;
+    std::cout << "Enter n and m values\n";
+    std::cin >> n3 >> m3;
+
+    int** arr31 = new int*[n3];
+    int** arr32 = new int*[n3];
+    int** arr33 = new int*[n3];
+    for (int i = 0; i < n3; ++i)
+    {
+        arr31[i] = new int[m3];
+        arr32[i] = new int[m3];
+        arr33[i] = new int[m3];
+    }
+
+
+    for (int i = 0; i < n3; ++i)
+    {
+        for (int z = 0; z < m3; ++z)
+        {
+            arr31[i] [z] = rd() % 11 - 5;
+        }
+    }
+    for (int i = 0; i < n3; ++i)
+    {
+        for (int z = 0; z < m3; ++z)
+        {
+            arr32[i] [z] = rd() % 11 - 5;
+        }
+    }
+    std::cout << "First matrix:\n";
+    for (int i = 0; i < n3; ++i)
+    {
+        for (int z = 0; z < m3; ++z)
+        {
+            std::cout << arr31[i] [z] << " ";
+        }
+        std::cout << std::endl;
+    }
+    std::cout << "Second matrix:\n";
+    for (int i = 0; i < n3; ++i)
+    {
+        for (int z = 0; z < m3; ++z)
+        {
+            std::cout << arr32[i] [z] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+
+    std::cout << "Sum matrix:\n";
+    for (int i = 0; i < n3; ++i)
+    {
+        for (int z = 0; z < m3; ++z)
+        {
+            arr33[i] [z] = arr31[i] [z] + arr32[i] [z];
+            std::cout << arr33[i] [z] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+
+    //#4
+    char str1[100500];
+    char str2[100500];
+
+    std::cout << "Enter str1\n";
+    std::cin.ignore(1);
+    std::cin.getline (str1, 100500);
+    std::cout << str1 << std::endl;
+    std::cout << "Enter str2\n";
+    std::cin.getline (str2, 100500);
+    std::cout << str2 << std::endl;
+    int k41 = 0;
+    int k42 = 0;
+    for (int i = 0; str1[i] != '\0'; ++i)
+    {
+        ++k41;
+    }
+    for (int i = 0; str2[i] != '\0'; ++i)
+    {
+        ++k42;
+    }
+
+    int k43 = k41 + k42;
+
+    char str3[k43];
+
+    for (int i = 0; i < k41; ++i)
+    {
+        str3[i] = str1[i];
+    }
+    for (int i = 0; i < k42; ++i)
+    {
+        str3[i + k41] = str2[i];
+    }
+    std::cout << str3 << std::endl;
+
+
+
+
+    /*std::string s1=" ", s2=" ", s3=" ";
+    std::cout << "Enter first string\n";
+    std::getline(std::cin, s1);
+    std::cout << "Enter second string\n";
+    std::getline(std::cin, s2);
+
+    s3 = s1 + s2;
+    std::cout << "Third string:\n" << s3 << std::endl;*/
+
+
+
+
+
+
+    return 0;
+}
