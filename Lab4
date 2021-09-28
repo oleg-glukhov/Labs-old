@@ -1,0 +1,111 @@
+#include <iostream>
+#include <cmath>
+#include <random>
+#include <array>
+#include <ctime>
+
+int main()
+{
+    //#1
+    std::srand(std::time(0));
+    std::array<double,10> array1 = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
+    for (double i : array1)
+        std::cout << i << " ";
+    std::cout << std::endl;
+    for (int i = 0; i < 10; ++i)
+        array1[i] = std::rand() % 21 - 10;
+    for (double i : array1)
+        std::cout << i << " ";
+    std::cout << std::endl;
+
+
+    //#2
+    std::vector<double> vec2;
+    for (double i : array1)
+        vec2.push_back(i);
+    for (double i : vec2)
+        std::cout << i << " ";
+    std::cout << std::endl;
+    double sum2 = 0;
+    for (double i : vec2)
+        sum2 += i;
+    std::cout << sum2 << std::endl;
+    for (int i = 3; i < 7; i++)
+        vec2.erase(vec2.begin() + 3);
+    for (double i : vec2)
+        std::cout << i << " ";
+    std::cout << std::endl;
+    for (int i = 0; i < 4; i++)
+        vec2.insert(vec2.end() - 1, 2.7);
+    for (double i : vec2)
+        std::cout << i << " ";
+    std::cout << std::endl;
+    for (int i = 0; i < vec2.size(); i++)
+    {
+        if (vec2[i] == 0)
+        {
+            vec2.erase(vec2.begin() + i);
+            break;
+        }
+    }
+    for (double i : vec2)
+        std::cout << i << " ";
+    std::cout << std::endl;
+    vec2.insert(vec2.end(), 5);
+    for (double i : vec2)
+        std::cout << i << " ";
+    std::cout << std::endl;
+    double diff2 = vec2.back() - vec2.front();
+    for (int i = 0; i < vec2.size(); i++)
+        vec2[i] = vec2[i] / diff2;
+    for (double i : vec2)
+        std::cout << i << " ";
+    std::cout << std::endl;
+    std::cout << vec2.size() << std::endl;
+
+
+    //#3
+    std::string str3;
+    std::cin >> str3;
+    std::cout << str3 << std::endl;
+    std::cout << str3.length() << std::endl;
+    double i3 = 0;
+    for (int i = 0; i < str3.length(); i++)
+        if (str3[i] >= 'a' && str3[i] <= 'z')
+            ++i3;
+    std::cout << i3 / str3.length() << std::endl;
+    int l1, l2 = 0;
+    std::cout << "Enter l1 and l2:\n";
+    std::cin >> l1 >> l2;
+    std::string substr3 = str3.substr(l1 - 1, l2 - l1 + 1);
+    std::cout << substr3 << std::endl;
+    std::string Can = "Can you can a can as a canner can can a can?";
+
+    std::string UserCan = "";
+
+    std::cout << "Enter a user string: ";
+    std::cin >> UserCan;
+
+    size_t pos = 0;
+    while (true) {
+        pos = Can.find("can", pos);
+
+        if (pos == std::string::npos) {
+            break;
+        } else if (Can.substr(pos, 6) == "canner") {
+            pos += 6;
+            continue;
+        }
+        Can.replace(pos, 3, UserCan);
+
+        pos += 3;
+    }
+    std::cout << Can;
+
+
+
+
+
+
+    return 0;
+}
